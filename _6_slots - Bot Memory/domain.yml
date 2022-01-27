@@ -1,0 +1,47 @@
+version: '2.0'
+
+config:
+  store_entities_as_slots: true
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+- greet
+- buy_phone_laptop
+- latest_news_phones_laptops
+- give_information
+- goodbye
+
+entities:
+- category
+- RAM
+- battery
+- camera
+
+slots:
+    category:
+        type: text
+    RAM:
+        type: text
+    battery:
+        type: text
+    camera:
+        type: text
+
+responses:
+  utter_how_can_I_help:
+  - text: Welcome. I'm your shopping bot. I can help you with finding a phone or laptop and providing latest news for them!
+  utter_ask_ram:
+  - text: How much GB RAM are you looking for?
+  utter_ask_camera:
+  - text: What megapixel camera are you looking for?
+  utter_ask_battery:
+  - text: How much battery capacity are you looking for in the mobile?
+  utter_goodbye:
+  - text: It was nice talking to you! Goodbye!
+
+actions:
+- action_search
+- action_show_latest_news
